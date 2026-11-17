@@ -397,6 +397,13 @@ footer {
     margin: 15px 0;
 }
 
+.game-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
 .play-btn {
     display: inline-block;
     background: #ffb7b2; /* パステルレッド/ピンク */
