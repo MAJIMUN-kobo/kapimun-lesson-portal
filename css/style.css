@@ -236,13 +236,20 @@ nav a:hover {
 }
 
 .card-image {
-    height: 180px;
+    aspect-ratio: 16 / 9;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-main);
     font-size: 1.2rem;
     border-bottom: 4px solid var(--box-border);
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .bg-unity { background-color: var(--color-unity); }
