@@ -179,24 +179,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // 新しい <a> タグ（リンク）を作成
                 const articleElement = document.createElement('a');
-                articleElement.href = article.link;
+                let articleUrl;
+                try {
+                    articleUrl = new URL(article.link);
+                } catch {
+                    return;
+                }
+                if (articleUrl.protocol !== 'https:' && articleUrl.protocol !== 'http:') return;
+
+                articleElement.href = articleUrl.href;
                 articleElement.target = '_blank';
                 articleElement.rel = 'noopener noreferrer';
                 // フィルタリング用にクラスと data-category をセット
                 articleElement.className = 'blog-item';
                 articleElement.setAttribute('data-category', category.id);
 
-                // カードの中身のHTMLをセット
-                articleElement.innerHTML = `
-                    <div class="blog-content">
-                        <h3>${article.title}</h3>
-                        <div class="blog-meta">
-                            <time datetime="${article.pubDate}">${formattedDate}</time>
-                            <span class="blog-tag">${category.label}</span>
-                        </div>
-                    </div>
-                    <div class="blog-icon">↗</div>
-                `;
+                const content = document.createElement('div');
+                content.className = 'blog-content';
+                const title = document.createElement('h3');
+                title.textContent = article.title ?? '';
+                const meta = document.createElement('div');
+                meta.className = 'blog-meta';
+                const time = document.createElement('time');
+                time.dateTime = article.pubDate;
+                time.textContent = formattedDate;
+                const tag = document.createElement('span');
+                tag.className = 'blog-tag';
+                tag.textContent = category.label;
+                meta.append(time, tag);
+                content.append(title, meta);
+                const icon = document.createElement('div');
+                icon.className = 'blog-icon';
+                icon.textContent = '↗';
+                articleElement.append(content, icon);
 
                 // 画面(blogContainer)に完成したカードを追加
                 blogContainer.appendChild(articleElement);

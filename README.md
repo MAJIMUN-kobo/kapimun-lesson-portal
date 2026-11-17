@@ -1,5 +1,6 @@
-# unilesson.github.io
+# Kapimun Lesson Portal
 
-ゲームページは[こちら](https://majimun-kobo.github.io/unilesson.github.io/unilesson/games/unilesson01/)
+ゲーム開発ポートフォリオと技術ブログです。
 
-https://majimun-kobo.github.io/unilesson.github.io/unilesson/games/ccrefrex/
+- サイト: https://majimun-kobo.github.io/kapimun-lesson-portal/
+- ゲーム一覧: https://majimun-kobo.github.io/kapimun-lesson-portal/#portfolio

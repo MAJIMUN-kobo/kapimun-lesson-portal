@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://unilesson.github.io/sitemap.xml
+Sitemap: https://majimun-kobo.github.io/kapimun-lesson-portal/sitemap.xml
